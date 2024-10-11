@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Password Checker</title>
+    <title>Your Flask App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='file.css')}}">
+   </head>
+<body>
+    <h1>Hello from Flask!</h1>
+    <div>
+        <label for="passwordInput">Enter Password:</label>
+        <input type="password" id="passwordInput" placeholder="Type your password">
+        <span id="visibilityToggle" onclick="toggleVisibility()">👁️</span>
+        <button id="checkButton" onclick="checkPassword()">Check Password</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const passwordInput = document.getElementById('passwordInput');
+            const password = passwordInput.value;
+
+            fetch('http://127.0.0.1:5000/check-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ password: password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultElement = document.getElementById('result');
+                resultElement.innerHTML = data.is_strong
+                    ? '<span class="success">Password is strong!</span>'
+                    : '<span class="error">Password is not strong. Please use a longer password.</span>';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function toggleVisibility() {
+            const passwordInput = document.getElementById('passwordInput');
+            passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('path/to/your/ihttps://media.istockphoto.com/id/1420039900/photo/cyber-security-ransomware-email-phishing-encrypted-technology-digital-information-protected.jpg?s=1024x1024&w=is&k=20&c=IF7urJ01pDieoE-QDg-hrMNL82vG3LCYnYjG2yGDN1o=mage.jpg') center/cover no-repeat; /* Set your image path */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+div {
+    text-align: center;
+}
+
+label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#passwordInput {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#visibilityToggle {
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#checkButton {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
